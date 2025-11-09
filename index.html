@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGYR - Engineering Software Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Хедер */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Основний контент */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .product-section {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .product-title {
+            font-size: 42px;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-links a {
+            font-size: 14px;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .product-links a:hover {
+            opacity: 0.7;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Футер */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+
+            .product-title {
+                font-size: 28px;
+            }
+
+            .product-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Хедер -->
+    <header>
+        <div class="logo">ENGYR</div>
+    </header>
+
+    <!-- Основний контент -->
+    <main>
+        <div class="product-section">
+            <h1 class="product-title">
+                REVIT + BIM COLLABORATE PRO
+            </h1>
+            <div class="product-links">
+                <a href="invoice.html" class="link-ua">Купити</a>
+                <a href="https://aklam.io/bcNlPC" class="link-buy" target="_blank" rel="noopener">Buy</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <p class="footer-text">made for engineers</p>
+    </footer>
+</body>
+</html>
