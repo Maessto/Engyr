@@ -12,7 +12,29 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENGYR - Engineering Software Store</title>
+    <title>Купити Autodesk Revit + BIM Collaborate Pro в Україні - ENGYR</title>
+    <meta name="description" content="Revit + BIM Collaborate Pro: сумісна робота над проектами в хмарі. Купити Autodesk Docs та ліцензії в Україні. Технічний досвід, реалізовані проекти, швидкий старт.">
+    <meta name="keywords" content="купити autodesk docs, revit україна, bim collaborate pro, сумісна робота в хмарі, autodesk docs">
+    <link rel="canonical" href="https://engyr.website/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ENGYR - Revit + BIM Collaborate Pro">
+    <meta property="og:description" content="Сумісна робота над проектами в хмарі. Купити Autodesk Docs та Revit в Україні.">
+    <meta property="og:url" content="https://engyr.website/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Autodesk Revit + BIM Collaborate Pro",
+      "description": "Revit з BIM Collaborate Pro для сумісної роботи над проектами в хмарі.",
+      "brand": { "@type": "Brand", "name": "Autodesk" },
+      "offers": {
+        "@type": "Offer",
+        "price": "150000",
+        "priceCurrency": "UAH",
+        "url": "https://engyr.website/invoice.html"
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -102,6 +124,70 @@
             letter-spacing: 1px;
         }
 
+        /* Невидиме меню в правому верхньому куті */
+        .corner-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            z-index: 100;
+        }
+
+        .corner-menu .dot {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cccccc;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .corner-menu nav {
+            position: absolute;
+            top: 40px;
+            right: 14px;
+            min-width: 130px;
+            padding: 10px 16px;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .corner-menu nav a {
+            font-size: 14px;
+            font-weight: 300;
+            color: #666666;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .corner-menu nav a:hover {
+            color: #000000;
+        }
+
+        .corner-menu:hover .dot,
+        .corner-menu:focus-within .dot {
+            opacity: 1;
+        }
+
+        .corner-menu:hover nav,
+        .corner-menu:focus-within nav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         /* Адаптивність */
         @media (max-width: 768px) {
             .logo {
@@ -120,6 +206,15 @@
     </style>
 </head>
 <body>
+    <!-- Невидиме меню (з'являється при наведенні на правий верхній кут) -->
+    <div class="corner-menu" tabindex="0" aria-label="Меню">
+        <span class="dot"></span>
+        <nav>
+            <a href="index.html" data-menu="home">Головна</a>
+            <a href="mailto:dm.21@outlook.com" data-menu="contacts">Контакти</a>
+        </nav>
+    </div>
+
     <!-- Хедер -->
     <header>
         <div class="logo">ENGYR</div>
@@ -142,5 +237,23 @@
     <footer>
         <p class="footer-text">made for engineers</p>
     </footer>
+
+    <script>
+        // Відстеження кліків (GA4)
+        function track(name, params) {
+            try { gtag('event', name, params); } catch (e) {}
+        }
+        document.querySelector('.link-ua').addEventListener('click', function () {
+            track('click_buy_button', { product_name: 'Revit + BIM Collaborate Pro', value: 150000, currency: 'UAH' });
+        });
+        document.querySelector('.link-buy').addEventListener('click', function () {
+            track('click_buy_button_en', { product_name: 'Revit + BIM Collaborate Pro' });
+        });
+        document.querySelectorAll('.corner-menu nav a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                track('menu_click', { menu_item: a.dataset.menu });
+            });
+        });
+    </script>
 </body>
 </html>

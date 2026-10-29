@@ -12,7 +12,9 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рахунок - ENGYR</title>
+    <title>Рахунок на Revit + BIM Collaborate Pro - ENGYR</title>
+    <meta name="description" content="Замовте рахунок на Autodesk Revit + BIM Collaborate Pro з ПДВ. Заповніть форму, і ми зв'яжемося з вами.">
+    <link rel="canonical" href="https://engyr.website/invoice.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -366,8 +368,17 @@
             }
             
             if (isValid) {
+                // Відстеження відправки форми (GA4)
+                try {
+                    gtag('event', 'form_submit', {
+                        product_name: 'Revit + BIM Collaborate Pro',
+                        form_type: 'invoice_request',
+                        value: 150000,
+                        currency: 'UAH'
+                    });
+                } catch (err) {}
                 // Якщо все ок - відправляємо форму
-                form.submit();
+                setTimeout(function () { form.submit(); }, 150);
             }
         });
 
