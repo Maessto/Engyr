@@ -13,8 +13,8 @@
     <script src="config.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рахунок на Revit + BIM Collaborate Pro - ENGYR</title>
-    <meta name="description" content="Замовте рахунок на Autodesk Revit + BIM Collaborate Pro з ПДВ. Заповніть форму, і ми зв'яжемося з вами.">
+    <title>Рахунок на Revit + Forma Design Collaboration - ENGYR</title>
+    <meta name="description" content="Замовте рахунок на Autodesk Revit + Forma Design Collaboration (1 рік) з ПДВ. Заповніть форму, і ми зв'яжемося з вами.">
     <link rel="canonical" href="https://engyr.website/invoice.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,9 +265,9 @@
                 </div>
 
                 <div class="product-info">
-                    <div class="product-name">revit + bim collaborate pro</div>
+                    <div class="product-name">revit + forma design collaboration</div>
                     <div class="product-price" id="productPrice">&nbsp;</div>
-                    <div class="price-detail">з ПДВ</div>
+                    <div class="price-detail">підписка на 1 рік, з ПДВ</div>
                 </div>
 
                 <!-- Форма -->
@@ -275,7 +275,7 @@
                     <!-- Hidden fields для Netlify -->
                     <input type="hidden" name="form-name" value="invoice-request">
                     <input type="hidden" name="bot-field">
-                    <input type="hidden" name="product" value="Revit + BIM Collaborate Pro">
+                    <input type="hidden" name="product" id="productField" value="">
                     <input type="hidden" name="price" id="priceField" value="">
 
                     <div class="form-group">
@@ -340,6 +340,7 @@
         document.getElementById('productPrice').textContent =
             ENGYR_CONFIG.priceUAH.toLocaleString('uk-UA').replace(/[  ]/g, ' ') + ' ₴';
         document.getElementById('priceField').value = ENGYR_CONFIG.priceUAH;
+        document.getElementById('productField').value = ENGYR_CONFIG.productName + ' (1 рік)';
 
         // Перевірка полів при відправці
         form.addEventListener('submit', function(e) {

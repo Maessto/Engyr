@@ -12,12 +12,12 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купити Autodesk Revit + BIM Collaborate Pro в Україні - ENGYR</title>
-    <meta name="description" content="Revit + BIM Collaborate Pro: сумісна робота над проектами в хмарі. Купити Autodesk Docs та ліцензії в Україні. Технічний досвід, реалізовані проекти, швидкий старт.">
-    <meta name="keywords" content="купити autodesk docs, revit україна, bim collaborate pro, сумісна робота в хмарі, autodesk docs">
+    <title>Купити Autodesk Revit + Forma Design Collaboration в Україні - ENGYR</title>
+    <meta name="description" content="Autodesk Revit + Forma Design Collaboration: сумісна робота над проектами в хмарі. Купити Autodesk Docs та ліцензії на 1 рік в Україні. Технічний досвід, реалізовані проекти, швидкий старт.">
+    <meta name="keywords" content="купити autodesk docs, revit україна, forma design collaboration, autodesk revit, bim collaborate pro, сумісна робота в хмарі, autodesk docs">
     <link rel="canonical" href="https://engyr.website/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ENGYR - Revit + BIM Collaborate Pro">
+    <meta property="og:title" content="ENGYR - Revit + Forma Design Collaboration">
     <meta property="og:description" content="Сумісна робота над проектами в хмарі. Купити Autodesk Docs та Revit в Україні.">
     <meta property="og:url" content="https://engyr.website/">
     <script src="config.js"></script>
@@ -31,7 +31,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Autodesk " + c.productName,
-        "description": "Revit з BIM Collaborate Pro для сумісної роботи над проектами в хмарі.",
+        "description": "Revit з Forma Design Collaboration для сумісної роботи над проектами в хмарі.",
         "brand": { "@type": "Brand", "name": "Autodesk" },
         "offers": {
           "@type": "Offer",
@@ -86,11 +86,11 @@
 
         .product-section {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .product-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 500;
             line-height: 1.2;
             margin-bottom: 10px;
@@ -184,6 +184,46 @@
             color: #000000;
         }
 
+        /* Раз на 1-2 хвилини в куті ненадовго спалахує зірочка-підказка */
+        .sparkle {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .sparkle svg {
+            position: absolute;
+            opacity: 0;
+            transform: scale(0) rotate(-45deg);
+            fill: url(#sparkleGradient);
+            filter: drop-shadow(0 0 5px rgba(140, 165, 205, 0.75));
+        }
+
+        .sparkle .s1 { top: 0; left: 0; width: 20px; height: 20px; }
+        .sparkle .s2 { top: -7px; left: -9px; width: 9px; height: 9px; }
+
+        .sparkle.play .s1 { animation: twinkle 1.9s ease-in-out forwards; }
+        .sparkle.play .s2 { animation: twinkle 1.5s ease-in-out 0.35s forwards; }
+
+        @keyframes twinkle {
+            0%   { opacity: 0; transform: scale(0) rotate(-45deg); }
+            35%  { opacity: 1; transform: scale(1) rotate(0deg); }
+            55%  { opacity: 0.9; transform: scale(0.85) rotate(10deg); }
+            100% { opacity: 0; transform: scale(0) rotate(45deg); }
+        }
+
+        .corner-menu:hover .sparkle,
+        .corner-menu:focus-within .sparkle {
+            display: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .sparkle { display: none; }
+        }
+
         .corner-menu:hover .dot,
         .corner-menu:focus-within .dot {
             opacity: 1;
@@ -216,6 +256,18 @@
 <body>
     <!-- Невидиме меню (з'являється при наведенні на правий верхній кут) -->
     <div class="corner-menu" tabindex="0" aria-label="Меню">
+        <span class="sparkle" aria-hidden="true">
+            <svg class="s1" viewBox="0 0 24 24"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z"/></svg>
+            <svg class="s2" viewBox="0 0 24 24"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z"/></svg>
+        </span>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <defs>
+                <linearGradient id="sparkleGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#b9c7dd"/>
+                    <stop offset="1" stop-color="#8a93a8"/>
+                </linearGradient>
+            </defs>
+        </svg>
         <span class="dot"></span>
         <nav>
             <a href="index.html" data-menu="home">Головна</a>
@@ -232,7 +284,7 @@
     <main>
         <div class="product-section">
             <h1 class="product-title">
-                REVIT + BIM COLLABORATE PRO
+                REVIT + FORMA DESIGN COLLABORATION
             </h1>
             <div class="product-links">
                 <a href="invoice.html" class="link-ua">Купити</a>
@@ -247,6 +299,22 @@
     </footer>
 
     <script>
+        // Зірочка-підказка: перший раз через 6 с, далі кожні 60-120 с
+        (function () {
+            var sp = document.querySelector('.sparkle');
+            if (!sp || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var menu = sp.parentElement;
+            function play() {
+                if (!document.hidden && !menu.matches(':hover')) {
+                    sp.classList.remove('play');
+                    void sp.offsetWidth; // перезапуск анімації
+                    sp.classList.add('play');
+                }
+                setTimeout(play, 60000 + Math.random() * 60000);
+            }
+            setTimeout(play, 6000);
+        })();
+
         // Відстеження кліків (GA4)
         function track(name, params) {
             try { gtag('event', name, params); } catch (e) {}
@@ -255,7 +323,7 @@
             track('click_buy_button', { product_name: ENGYR_CONFIG.productName, value: ENGYR_CONFIG.priceUAH, currency: ENGYR_CONFIG.currency });
         });
         document.querySelector('.link-buy').addEventListener('click', function () {
-            track('click_buy_button_en', { product_name: 'Revit + BIM Collaborate Pro' });
+            track('click_buy_button_en', { product_name: ENGYR_CONFIG.productName });
         });
         document.querySelectorAll('.corner-menu nav a').forEach(function (a) {
             a.addEventListener('click', function () {

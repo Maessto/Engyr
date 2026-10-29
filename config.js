@@ -1,7 +1,7 @@
 // ENGYR: єдине місце для ціни.
 // Щоб змінити ціну, змініть лише priceUAH нижче і задеплойте.
 window.ENGYR_CONFIG = {
-  productName: 'Revit + BIM Collaborate Pro',
+  productName: 'Revit + Forma Design Collaboration',
   priceUAH: 165810, // ціна з ПДВ, грн
   currency: 'UAH'
 };
