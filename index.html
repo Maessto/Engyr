@@ -20,20 +20,28 @@
     <meta property="og:title" content="ENGYR - Revit + BIM Collaborate Pro">
     <meta property="og:description" content="Сумісна робота над проектами в хмарі. Купити Autodesk Docs та Revit в Україні.">
     <meta property="og:url" content="https://engyr.website/">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Autodesk Revit + BIM Collaborate Pro",
-      "description": "Revit з BIM Collaborate Pro для сумісної роботи над проектами в хмарі.",
-      "brand": { "@type": "Brand", "name": "Autodesk" },
-      "offers": {
-        "@type": "Offer",
-        "price": "150000",
-        "priceCurrency": "UAH",
-        "url": "https://engyr.website/invoice.html"
-      }
-    }
+    <script src="config.js"></script>
+    <script>
+    // Структуровані дані для Google; ціна береться з config.js
+    (function () {
+      var c = window.ENGYR_CONFIG;
+      var s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Autodesk " + c.productName,
+        "description": "Revit з BIM Collaborate Pro для сумісної роботи над проектами в хмарі.",
+        "brand": { "@type": "Brand", "name": "Autodesk" },
+        "offers": {
+          "@type": "Offer",
+          "price": String(c.priceUAH),
+          "priceCurrency": c.currency,
+          "url": "https://engyr.website/invoice.html"
+        }
+      });
+      document.head.appendChild(s);
+    })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -244,7 +252,7 @@
             try { gtag('event', name, params); } catch (e) {}
         }
         document.querySelector('.link-ua').addEventListener('click', function () {
-            track('click_buy_button', { product_name: 'Revit + BIM Collaborate Pro', value: 150000, currency: 'UAH' });
+            track('click_buy_button', { product_name: ENGYR_CONFIG.productName, value: ENGYR_CONFIG.priceUAH, currency: ENGYR_CONFIG.currency });
         });
         document.querySelector('.link-buy').addEventListener('click', function () {
             track('click_buy_button_en', { product_name: 'Revit + BIM Collaborate Pro' });

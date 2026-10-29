@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <script src="config.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQCGP6J83X"></script>
     <script>
@@ -10,9 +11,9 @@
       gtag('config', 'G-XQCGP6J83X');
       // Конверсія: запит на рахунок відправлено
       gtag('event', 'purchase_request', {
-        product_name: 'Revit + BIM Collaborate Pro',
-        value: 150000,
-        currency: 'UAH'
+        product_name: ENGYR_CONFIG.productName,
+        value: ENGYR_CONFIG.priceUAH,
+        currency: ENGYR_CONFIG.currency
       });
     </script>
     <meta charset="UTF-8">

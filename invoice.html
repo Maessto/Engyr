@@ -10,6 +10,7 @@
 
   gtag('config', 'G-XQCGP6J83X');
 </script>
+    <script src="config.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рахунок на Revit + BIM Collaborate Pro - ENGYR</title>
@@ -265,7 +266,7 @@
 
                 <div class="product-info">
                     <div class="product-name">revit + bim collaborate pro</div>
-                    <div class="product-price">150 000 ₴</div>
+                    <div class="product-price" id="productPrice">&nbsp;</div>
                     <div class="price-detail">з ПДВ</div>
                 </div>
 
@@ -275,7 +276,7 @@
                     <input type="hidden" name="form-name" value="invoice-request">
                     <input type="hidden" name="bot-field">
                     <input type="hidden" name="product" value="Revit + BIM Collaborate Pro">
-                    <input type="hidden" name="price" value="150000">
+                    <input type="hidden" name="price" id="priceField" value="">
 
                     <div class="form-group">
                         <label for="fullName">Повне ім'я</label>
@@ -335,6 +336,11 @@
             e.target.value = '+' + value;
         });
 
+        // Ціна з config.js
+        document.getElementById('productPrice').textContent =
+            ENGYR_CONFIG.priceUAH.toLocaleString('uk-UA').replace(/[  ]/g, ' ') + ' ₴';
+        document.getElementById('priceField').value = ENGYR_CONFIG.priceUAH;
+
         // Перевірка полів при відправці
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -371,10 +377,10 @@
                 // Відстеження відправки форми (GA4)
                 try {
                     gtag('event', 'form_submit', {
-                        product_name: 'Revit + BIM Collaborate Pro',
+                        product_name: ENGYR_CONFIG.productName,
                         form_type: 'invoice_request',
-                        value: 150000,
-                        currency: 'UAH'
+                        value: ENGYR_CONFIG.priceUAH,
+                        currency: ENGYR_CONFIG.currency
                     });
                 } catch (err) {}
                 // Якщо все ок - відправляємо форму
